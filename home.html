@@ -77,8 +77,7 @@
         <div class="flex items-center gap-4">
           <!-- search box -->
           <div
-            class="flex items-center w-[18.75rem] h-[2.75rem] border border-[#e4e4e7FF] rounded-[.25rem] p-4 
-                    focus-within:border-theme-primary transition-all duration-300"
+            class="flex items-center w-[18.75rem] h-[2.75rem] border border-[#e4e4e7FF] rounded-[.25rem] p-4 focus-within:border-theme-primary transition-all duration-300"
           >
             <!-- Search Icon -->
             <svg
@@ -99,14 +98,40 @@
             <input
               type="text"
               placeholder="Search issues..."
-              class="w-full text-base font-normal border-none focus:outline-none text-text-primary placeholder-text-secondary "
+              class="w-full text-base font-normal border-none focus:outline-none text-text-primary placeholder-text-secondary"
             />
           </div>
-          <button class="btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3">
+          <button
+            class="btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3"
+          >
             <i class="fa-solid fa-plus w-4"></i><span>New Issue</span>
           </button>
         </div>
       </div>
     </header>
+
+    <!-- main content -->
+    <div class="w-full max-w-[69.375rem] mx-auto">
+      <!-- tabs -->
+      <div class="w-full p-6 bg-surface rounded-lg mt-[3.75rem] shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] flex justify-start items-center gap-2">
+        <button
+          class="w-[7.5rem] btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3"
+        >
+          All
+        </button>
+
+        <button
+          class="w-[7.5rem] btn bg-white text-text-secondary text-base font-medium hover:bg-[#4a00ffcc] hover:text-white border border-[#e4e4e7FF] transition-all duration-300 rounded-[.25rem] px-4 py-3"
+        >
+          Open
+        </button>
+
+        <button
+          class="w-[7.5rem] btn bg-white text-text-secondary text-base font-medium hover:bg-[#4a00ffcc] hover:text-white border border-[#e4e4e7FF] transition-all duration-300 rounded-[.25rem] px-4 py-3"
+        >
+          Closed
+        </button>
+      </div>
+    </div>
   </body>
 </html>
