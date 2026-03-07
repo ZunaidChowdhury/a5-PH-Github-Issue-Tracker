@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Github Issue Tracker</title>
+    <title>Sign In | Github Issue Tracker</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles/styles.css" />
@@ -62,16 +62,75 @@
   </head>
   <body class="min-h-screen bg-background flex items-center justify-center">
     <!-- log in div  -->
-    <div class="bg-surface max-w-[520px] shadow-md p-8 rounded-lg">
+    <div class="bg-surface w-full max-w-[32.5rem] shadow-md p-8 rounded-lg">
       <!-- header -->
-      <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center mb-6">
         <img
           class="w-[100px] h-[100px] mb-6"
           src="./assets/github-logo.png"
           alt="GitHub Logo"
         />
-        <h2 class="text-text-primary text-2xl font-semibold">GitHub Issues Tracker</h2>
-        <p class="text-text-secondary text-base font-normal">Sign in to manage your issues</p>
+        <div class="text-center">
+          <h2 class="text-text-primary text-2xl font-semibold">
+            GitHub Issues Tracker
+          </h2>
+          <p class="text-text-secondary text-base font-normal">
+            Sign in to manage your issues
+          </p>
+        </div>
+      </div>
+      <!-- sign in form -->
+      <form class="">
+        <fieldset class="fieldset">
+          <label class="label text-text-primary text-base font-medium"
+            >Username</label
+          >
+          <input
+            type="email"
+            id="username"
+            class="input w-full outline-none border focus:border-theme-primary text-text-secondary text-base font-normal"
+            placeholder="Enter Username"
+          />
+          <p class="label text-theme-primary text-sm font-normal mb-4">
+            Default: admin
+          </p>
+
+          <label class="label text-text-primary text-base font-medium leading-none"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            class="input w-full outline-none border focus:border-theme-primary text-text-secondary text-base font-normal"
+            placeholder="Enter Password"
+          />
+          <p class="label text-theme-primary text-sm font-normal mb-6">
+            Default: admin123
+          </p>
+
+          <button
+            id="sign-in-btn"
+            class="btn rounded-lg bg-theme-primary p-4 text-surface text-base font-semibold h-[3rem]"
+          >
+            Sign In
+          </button>
+        </fieldset>
+      </form>
+      <!-- horizontal line -->
+      <div class="relative flex my-6 items-center">
+        <div class="flex-grow border-t border-[#e4e4e7FF]"></div>
+        <span class="flex-shrink mx-4 text-text-primary text-base font-normal"
+          >OR</span
+        >
+        <div class="flex-grow border-t border-[#e4e4e7FF]"></div>
+      </div>
+      <!-- bottom -->
+      <div class="flex flex-col items-center justify-center text-center">
+        <p class="text-text-secondary text-sm font-normal mb-2">Demo Credentials:</p>
+        <div class="bg-background rounded-lg p-6 w-full text-text-primary text-base font-normal">
+          <p><span class="font-semibold">Username:</span> admin</p>
+          <p><span class="font-semibold">Password:</span> admin123</p>
+        </div>
       </div>
     </div>
   </body>

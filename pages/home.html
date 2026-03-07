@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Github Issue Tracker</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <!-- JS SCRIPTS -->
+    <script src="../scripts/home.js" defer></script>
+
+    <!-- GOOGLE FONT  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- daisy & tailwind cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- tailwind custom props -->
+    <style type="text/tailwindcss">
+      :root {
+        --background: #f8fafc;
+        --surface: #ffffff;
+        --theme-primary: #4a00ff;
+        --text-primary: #1f2937;
+        --text-secondary: #64748b;
+      }
+      @theme {
+        --breakpoint-tablet: 36rem; /* 576px */
+        --breakpoint-desktop: 62rem; /* 992px */
+      }
+
+      @theme inline {
+        --color-background: var(--background);
+        --color-surface: var(--surface);
+        --color-theme-primary: var(--theme-primary);
+        --color-text-primary: var(--text-primary);
+        --color-text-secondary: var(--text-secondary);
+      }
+    </style>
+
+    <!-- FAV ICON -->
+    <link rel="icon" type="image/png" href="../assets/github-logo.png" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="min-h-screen bg-background">
+    <h1>Home</h1>
+  </body>
+</html>
