@@ -34,6 +34,9 @@
         --theme-primary: #4a00ff;
         --text-primary: #1f2937;
         --text-secondary: #64748b;
+
+        --theme-red: #ef4444;
+        --theme-green: #00a96e;
       }
       @theme {
         --breakpoint-tablet: 36rem; /* 576px */
@@ -46,6 +49,9 @@
         --color-theme-primary: var(--theme-primary);
         --color-text-primary: var(--text-primary);
         --color-text-secondary: var(--text-secondary);
+
+        --color-theme-red: var(--theme-red);
+        --color-theme-green: var(--theme-green);
       }
     </style>
 
@@ -112,8 +118,10 @@
 
     <!-- main content -->
     <div class="w-full max-w-[69.375rem] mx-auto">
-      <!-- tabs -->
-      <div class="w-full p-6 bg-surface rounded-lg mt-[3.75rem] shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] flex justify-start items-center gap-2">
+      <!-- tabs parent -->
+      <div
+        class="w-full p-6 bg-surface rounded-lg mt-[3.75rem] shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] flex justify-start items-center gap-2 mb-4"
+      >
         <button
           class="w-[7.5rem] btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3"
         >
@@ -132,6 +140,86 @@
           Closed
         </button>
       </div>
+
+      <!-- issues header parent -->
+      <div
+        class="w-full p-6 bg-surface rounded-t-lg shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] border-b border-gray-300 flex justify-between items-center"
+      >
+        <!-- left -->
+        <div class="flex gap-2 items-center">
+          <!-- image -->
+          <div
+            class="w-[3.125rem] h-[3.125rem] bg-[#ECE4FF] rounded-full flex items-center justify-center"
+          >
+            <img src="./assets/Aperture.png" alt="" />
+          </div>
+
+          <div>
+            <h2 class="text-text-primary text-[1.25rem] font-semibold">
+              50 Issues
+            </h2>
+            <p class="text-text-secondary text-base font-normal">
+              Track and manage your project issues
+            </p>
+          </div>
+        </div>
+
+        <!-- right -->
+        <div class="flex items-center gap-4">
+          <!-- element 1 -->
+          <div class="flex items-center gap-2">
+            <!-- circular shape -->
+            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            <span class="text-text-primary text-base font-medium">Open</span>
+          </div>
+
+          <!-- element 2 -->
+          <div class="flex items-center gap-2">
+            <!-- circular shape -->
+            <div class="w-3 h-3 bg-[#a855f7FF] rounded-full"></div>
+            <span class="text-text-primary text-base font-medium">Closed</span>
+          </div>
+        </div>
+      </div>
+      <!-- issue cards container/parent -->
+      <main
+        class="w-full p-6 bg-[#fbfbfbFF] rounded-b-lg shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mb-[3.75rem] grid grid-cols-4 gap-3"
+      >
+        <!-- issue card 1 -->
+        <div
+          class="bg-surface rounded-[6px] shadow-sm border-t-[4px] border-theme-green"
+        >
+          <div class="p-4">
+            <!-- top badges -->
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-6 h-6">
+                <img src="./assets/Open-Status.png" alt="issue open" />
+              </div>
+
+              <div
+                class="bg-[#ef444446] p-2 rounded-full w-[5rem] text-center text-theme-red text-xs font-medium"
+              >
+                HIGH
+              </div>
+            </div>
+            <h3 class="text-text-primary text-sm font-semibold capitalize mb-2">Fix navigation menu on mobile devices</h3>
+            <p class="text-text-secondary text-xs font-normal mb-3">The navigation menu doesn't collapse properly on mobile devices...</p>
+            <!-- badges 2 -->
+            <div class="flex gap-1 items-center">
+              <div class="bg-[#ef444446] py-1 px-2 rounded-full  border-1 border-theme-red text-center text-theme-red text-xs font-medium">BUG</div>
+              <div class="bg-[#ef444446] py-1 px-2 rounded-full  border-1 border-theme-red text-center text-theme-red text-xs font-medium">HELP WANTED</div>
+            </div>
+          </div>
+          <!-- hr line -->
+          <div class="border-t border-[#e4e4e7FF] my-2"></div>
+          <div class="p-4">
+            <!-- posted by -->
+            <p class="text-text-secondary text-xs font-normal mb-2">by john doe</p>
+            <!-- date -->
+            <p class="text-text-secondary text-xs font-normal">1/15/2024</p>
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>
