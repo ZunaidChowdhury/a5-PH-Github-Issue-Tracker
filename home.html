@@ -61,6 +61,52 @@
     />
   </head>
   <body class="min-h-screen bg-background">
-    <h1>Home</h1>
+    <header class="bg-surface w-full h-[4.875rem] shadow-sm py-4">
+      <!-- container -->
+      <div class="max-w-[92rem] mx-auto px-4 flex justify-between">
+        <!-- left -->
+        <div class="flex items-center gap-1">
+          <div class="w-9 h-9">
+            <img src="./assets/github-logo.png" alt="GitHub Logo" />
+          </div>
+          <h1 class="text-text-primary text-2xl font-semibold">
+            GitHub Issues Tracker
+          </h1>
+        </div>
+        <!-- right -->
+        <div class="flex items-center gap-4">
+          <!-- search box -->
+          <div
+            class="flex items-center w-[18.75rem] h-[2.75rem] border border-[#e4e4e7FF] rounded-[.25rem] p-4 
+                    focus-within:border-theme-primary transition-all duration-300"
+          >
+            <!-- Search Icon -->
+            <svg
+              class="w-4 h-4 text-text-secondary mr-1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+
+            <!-- Input Field -->
+            <input
+              type="text"
+              placeholder="Search issues..."
+              class="w-full text-base font-normal border-none focus:outline-none text-text-primary placeholder-text-secondary "
+            />
+          </div>
+          <button class="btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3">
+            <i class="fa-solid fa-plus w-4"></i><span>New Issue</span>
+          </button>
+        </div>
+      </div>
+    </header>
   </body>
 </html>
