@@ -37,6 +37,7 @@
 
         --theme-red: #ef4444;
         --theme-green: #00a96e;
+        --theme-purple: #a855f7FF;
       }
       @theme {
         --breakpoint-tablet: 36rem; /* 576px */
@@ -52,6 +53,7 @@
 
         --color-theme-red: var(--theme-red);
         --color-theme-green: var(--theme-green);
+        --color-theme-purple: var(--theme-purple);
       }
     </style>
 
@@ -183,150 +185,15 @@
       </div>
       <!-- issue cards container/parent -->
       <main
+        id="issue-cards-container"
         class="w-full p-6 bg-[#fbfbfbFF] rounded-b-lg shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mb-[3.75rem] grid grid-cols-4 gap-3"
       >
-        <!-- issue card 1 -->
-        <div
-          class="bg-surface rounded-[6px] shadow-sm border-t-[4px] border-theme-green"
-        >
-          <div class="p-4">
-            <!-- top badges -->
-            <div class="flex items-center justify-between mb-3">
-              <div class="w-6 h-6">
-                <img src="./assets/Open-Status.png" alt="issue open" />
-              </div>
 
-              <div
-                class="bg-[#ef444446] rounded-full w-[5rem] h-[1.5rem] flex justify-center items-center p-2"
-              >
-                <span class="text-theme-red text-xs font-medium">HIGH</span>
-              </div>
-            </div>
-            <h3 class="text-text-primary text-sm font-semibold capitalize mb-2">
-              Fix navigation menu on mobile devices
-            </h3>
-            <p class="text-text-secondary text-xs font-normal mb-3">
-              The navigation menu doesn't collapse properly on mobile devices...
-            </p>
-            <!-- badges 2 -->
-            <div class="flex gap-1 items-center">
-              <div
-                class="bg-[#ef444446] rounded-full h-[1.5rem] flex justify-center items-center p-2 border-1 border-theme-red"
-              >
-                <div class="w-3 h-3 mr-[2px]">
-                  <img src="./assets/BugDroid.png" alt="" />
-                </div>
-                <span class="text-theme-red text-xs font-medium">BUG</span>
-              </div>
+      
 
-              <div
-                class="bg-[#ef444446] rounded-full h-[1.5rem] flex justify-center items-center p-2 border-1 border-theme-red"
-              >
-                <div class="w-3 h-3 mr-[2px]">
-                  <img src="./assets/vector.png" alt="" />
-                </div>
-                <span class="text-theme-red text-xs font-medium"
-                  >HELP WANTED</span
-                >
-              </div>
-            </div>
-          </div>
-          <!-- hr line -->
-          <div class="border-t border-[#e4e4e7FF]"></div>
-          <div class="p-4">
-            <!-- posted by -->
-            <p class="text-text-secondary text-xs font-normal mb-2">
-              #1 by john doe
-            </p>
-            <!-- date -->
-            <p class="text-text-secondary text-xs font-normal">1/15/2024</p>
-          </div>
-        </div>
       </main>
     </div>
 
-    <!-- Modal -->
-    <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
-    <!-- modal overlay -->
-    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-      <!-- modal -->
-      <div class="modal-box p-8 w-full max-w-[43.75rem]">
-        <h3 class="text-text-primary text-2xl font-bold mb-2">
-          Fix broken image uploads!
-        </h3>
-        <ul
-          class="flex items-center list-disc marker:text-[#64748b] gap-7 mb-[1.625rem]"
-        >
-          <li class="list-none">
-            <div
-              class="bg-theme-green rounded-full h-[1.5rem] flex justify-center items-center p-2"
-            >
-              <span class="text-white text-xs font-medium">Opened</span>
-            </div>
-          </li>
-          <li>
-            <p class="text-text-secondary text-xs font-normal">
-              Opened by Fahim Ahmed
-            </p>
-          </li>
-          <li>
-            <p class="text-text-secondary text-xs font-normal">22/02/2026</p>
-          </li>
-        </ul>
 
-        <!-- badges 2 -->
-        <div class="flex gap-1 items-center mb-[1.5rem]">
-          <div
-            class="bg-[#ef444446] rounded-full h-[1.5rem] flex justify-center items-center p-2 border-1 border-theme-red"
-          >
-            <div class="w-3 h-3 mr-[2px]">
-              <img src="./assets/BugDroid.png" alt="" />
-            </div>
-            <span class="text-theme-red text-xs font-medium">BUG</span>
-          </div>
-
-          <div
-            class="bg-[#ef444446] rounded-full h-[1.5rem] flex justify-center items-center p-2 border-1 border-theme-red"
-          >
-            <div class="w-3 h-3 mr-[2px]">
-              <img src="./assets/vector.png" alt="" />
-            </div>
-            <span class="text-theme-red text-xs font-medium">HELP WANTED</span>
-          </div>
-        </div>
-
-        <p class="text-text-secondary text-base font-normal mb-[1.75rem]">
-          The navigation menu doesn't collapse properly on mobile devices. Need
-          to fix the responsive behavior.
-        </p>
-
-        <!-- bottom -->
-        <div
-          class="bg-background rounded-lg p-4 w-full text-text-secondary text-base font-normal grid grid-cols-2 mb-[1.562rem]"
-        >
-          <div>
-            <p>Assignee:</p>
-            <p class="font-semibold">Fahim Ahmed</p>
-          </div>
-
-          <div>
-            <p>Priority:</p>
-            <div
-              class="bg-theme-red w-fit px-4 rounded-full h-[1.5rem] flex justify-center items-center p-2"
-            >
-              <span class="text-white text-xs font-medium">HIGH</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-action">
-          <form method="dialog">
-            <!-- if there is a button in form, it will close the modal -->
-            <button class="btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3">Close</button>
-          </form>
-        </div>
-      </div>
-    </dialog>
   </body>
 </html>
