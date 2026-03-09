@@ -3,6 +3,8 @@ const tabBtnClasses = `w-[7.5rem] btn bg-white text-text-secondary text-base fon
 const tabActiveBtnClasses = `w-[7.5rem] btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3`;
 
 // DOM Element References
+const searchInput = document.querySelector('#searchInput');
+const spinner = document.querySelector('#spinner');
 const issueCardsContainer = document.querySelector('#issue-cards-container');
 const tabParent = document.querySelector('#tab-parent');
 const tabBtns = document.querySelectorAll('#tab-parent button');
@@ -34,7 +36,35 @@ const formatName = (str) => {
     .join(' ');
 };
 
-const renderIssueCards = (issues) => {
+function wait(time) {
+  return new Promise(res => setTimeout(res, time));
+}
+
+const showSpinner = (show) => {
+  if (show) {
+    issueCardsContainer.classList.remove('grid', 'grid-cols-4', 'gap-3');
+    spinner.classList.remove('hidden');
+    spinner.classList.add('flex');
+  }
+  else {
+    issueCardsContainer.classList.add('grid', 'grid-cols-4', 'gap-3');
+    spinner.classList.remove('flex');
+    spinner.classList.add('hidden');
+  }
+}
+
+const renderIssueCards = async (issues) => {
+
+  if (isFirstLoad) {
+    await wait(300);
+
+    showSpinner(false);
+    isFirstLoad = false;
+  }
+
+
+  issueCardsContainer.innerHTML = '';
+  // issueCardsContainer.classList.add('grid', 'grid-cols-4', 'gap-3');
   issues.forEach(issue => {
     // console.log(issue);
 
@@ -103,39 +133,25 @@ const getIssues = async () => {
 
 const showIssues = async () => {
 
-  // console.log('isFirstLoad: ', isFirstLoad, " activeTab: ", activeTab);
-  
   if (isFirstLoad) {
     allIssues = await getIssues();
-    // console.log('allIssues: ', allIssues);
-    
 
     openIssues.push(...allIssues.filter(issue => issue.status === 'open'));
     closedIssues.push(...allIssues.filter(issue => issue.status === 'closed'));
-    // console.log(issues);
-
-    issueCardsContainer.innerHTML = '';
 
     renderIssueCards(allIssues);
-    isFirstLoad = false;
     return;
   }
 
   if (activeTab === 'all') {
-    issueCardsContainer.innerHTML = '';
-    console.log('allIssues: ', allIssues);
-    
     renderIssueCards(allIssues);
   }
 
   if (activeTab === 'open') {
-    issueCardsContainer.innerHTML = '';
-
     renderIssueCards(openIssues);
   }
 
   if (activeTab === 'closed') {
-    issueCardsContainer.innerHTML = '';
 
     renderIssueCards(closedIssues);
   }
@@ -235,9 +251,25 @@ const showIssue = async (issueId) => {
   issueModal.showModal();
 };
 
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+
+    const query = searchInput.value;
+    console.log("Searching for:", query);
+
+    // Execute your code here
+    const filteredIssues = allIssues.filter(issue => issue.title.toLowerCase().includes(query.toLowerCase()));
+
+    issueCardsContainer.innerHTML = '';
+
+
+    renderIssueCards(filteredIssues);
+  }
+});
+
 tabParent.addEventListener('click', (e) => {
   const clickedTab = e.target.closest('button');
-  // console.log(clickedTab);
 
   if (clickedTab.textContent.toLowerCase().trim() === 'all') {
     activeTab = 'all';
@@ -307,5 +339,11 @@ issueCardsContainer.addEventListener('click', (e) => {
 
 // Execution
 showIssues();
+
+
+
+
+
+
 
 

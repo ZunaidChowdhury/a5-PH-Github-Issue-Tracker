@@ -37,7 +37,7 @@
 
         --theme-red: #ef4444;
         --theme-green: #00a96e;
-        --theme-purple: #a855f7FF;
+        --theme-purple: #a855f7ff;
       }
       @theme {
         --breakpoint-tablet: 36rem; /* 576px */
@@ -104,6 +104,7 @@
 
             <!-- Input Field -->
             <input
+              id="searchInput"
               type="text"
               placeholder="Search issues..."
               class="w-full text-base font-normal border-none focus:outline-none text-text-primary placeholder-text-secondary"
@@ -127,7 +128,9 @@
       >
         <button
           class="w-[7.5rem] btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3"
-        >All</button>
+        >
+          All
+        </button>
 
         <button
           class="w-[7.5rem] btn bg-white text-text-secondary text-base font-medium hover:bg-[#4a00ffcc] hover:text-white border border-[#e4e4e7FF] transition-all duration-300 rounded-[.25rem] px-4 py-3"
@@ -156,7 +159,10 @@
           </div>
 
           <div>
-            <h2 id="issue-counts" class="text-text-primary text-[1.25rem] font-semibold">
+            <h2
+              id="issue-counts"
+              class="text-text-primary text-[1.25rem] font-semibold"
+            >
               -
             </h2>
             <p class="text-text-secondary text-base font-normal">
@@ -185,11 +191,11 @@
       <!-- issue cards container/parent -->
       <main
         id="issue-cards-container"
-        class="w-full p-6 bg-[#fbfbfbFF] rounded-b-lg shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]  grid grid-cols-4 gap-3"
+        class="w-full p-6 bg-[#fbfbfbFF] rounded-b-lg shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]"
       >
-
-      
-
+        <div id="spinner" class="flex items-center justify-center">
+          <span class="loading loading-spinner loading-xl"></span>
+        </div>
       </main>
     </div>
 
@@ -199,10 +205,6 @@
     <!-- modal overlay -->
     <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
       <!-- modal -->
-
     </dialog>
-
   </body>
 </html>
-
-
