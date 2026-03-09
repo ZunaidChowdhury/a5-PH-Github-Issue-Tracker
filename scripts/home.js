@@ -1,11 +1,20 @@
-console.log('Home connected.');
-
-// DOM Element References
-const issueCardsContainer = document.querySelector('#issue-cards-container');
-
+// console.log('Home connected.');
 const tabBtnClasses = `w-[7.5rem] btn bg-white text-text-secondary text-base font-medium hover:bg-[#4a00ffcc] hover:text-white border border-[#e4e4e7FF] transition-all duration-300 rounded-[.25rem] px-4 py-3`;
 const tabActiveBtnClasses = `w-[7.5rem] btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3`;
 
+// DOM Element References
+const issueCardsContainer = document.querySelector('#issue-cards-container');
+const tabParent = document.querySelector('#tab-parent');
+const tabBtns = document.querySelectorAll('#tab-parent button');
+const issueCounts = document.querySelector('#issue-counts');
+
+// GLOBAL VARIABLES
+let allIssues = [];
+const openIssues = [];
+const closedIssues = [];
+
+let isFirstLoad = true;
+let activeTab = 'all';
 
 // Functions Definitions
 const isoToLocalDate = (isoString) => {
@@ -25,19 +34,7 @@ const formatName = (str) => {
     .join(' ');
 };
 
-const getIssues = async () => {
-  const response = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
-  const result = await response.json();
-
-  return result.data;
-};
-
-const showIssues = async () => {
-  const issues = await getIssues();
-  // console.log(issues);
-
-  issueCardsContainer.innerHTML = '';
-
+const renderIssueCards = (issues) => {
   issues.forEach(issue => {
     // console.log(issue);
 
@@ -92,7 +89,57 @@ const showIssues = async () => {
 </div>
     `;
     issueCardsContainer.appendChild(card);
+    issueCounts.textContent = `${issues.length} Issues`;
   });
+}
+
+
+const getIssues = async () => {
+  const response = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
+  const result = await response.json();
+
+  return result.data;
+};
+
+const showIssues = async () => {
+
+  // console.log('isFirstLoad: ', isFirstLoad, " activeTab: ", activeTab);
+  
+  if (isFirstLoad) {
+    allIssues = await getIssues();
+    // console.log('allIssues: ', allIssues);
+    
+
+    openIssues.push(...allIssues.filter(issue => issue.status === 'open'));
+    closedIssues.push(...allIssues.filter(issue => issue.status === 'closed'));
+    // console.log(issues);
+
+    issueCardsContainer.innerHTML = '';
+
+    renderIssueCards(allIssues);
+    isFirstLoad = false;
+    return;
+  }
+
+  if (activeTab === 'all') {
+    issueCardsContainer.innerHTML = '';
+    console.log('allIssues: ', allIssues);
+    
+    renderIssueCards(allIssues);
+  }
+
+  if (activeTab === 'open') {
+    issueCardsContainer.innerHTML = '';
+
+    renderIssueCards(openIssues);
+  }
+
+  if (activeTab === 'closed') {
+    issueCardsContainer.innerHTML = '';
+
+    renderIssueCards(closedIssues);
+  }
+
 };
 
 const getIssue = async (issueId) => {
@@ -100,7 +147,7 @@ const getIssue = async (issueId) => {
   const result = await response.json();
 
   // console.log(result.data);
-  
+
   return result.data;
 };
 
@@ -185,15 +232,76 @@ const showIssue = async (issueId) => {
       </div>
   `;
 
-    issueModal.showModal();
+  issueModal.showModal();
 };
+
+tabParent.addEventListener('click', (e) => {
+  const clickedTab = e.target.closest('button');
+  // console.log(clickedTab);
+
+  if (clickedTab.textContent.toLowerCase().trim() === 'all') {
+    activeTab = 'all';
+    // clickedTab.className = tabActiveBtnClasses;
+
+    tabBtns.forEach(btn => {
+      if (btn === clickedTab) {
+        btn.className = tabActiveBtnClasses;
+        console.log(btn.className);
+
+      }
+      else {
+        btn.className = tabBtnClasses;
+        console.log(btn.className);
+      }
+    });
+
+    showIssues();
+  }
+
+  if (clickedTab.textContent.toLowerCase().trim() === 'open') {
+    activeTab = 'open';
+    // clickedTab.className = tabActiveBtnClasses;
+
+    tabBtns.forEach(btn => {
+      if (btn === clickedTab) {
+        btn.className = tabActiveBtnClasses;
+        // console.log(btn.className);
+
+      }
+      else {
+        btn.className = tabBtnClasses;
+        // console.log(btn.className);
+      }
+    });
+
+    showIssues();
+  }
+
+  if (clickedTab.textContent.toLowerCase().trim() === 'closed') {
+    activeTab = 'closed';
+    // clickedTab.className = tabActiveBtnClasses;
+
+    tabBtns.forEach(btn => {
+      if (btn === clickedTab) {
+        btn.className = tabActiveBtnClasses;
+
+      }
+      else {
+        btn.className = tabBtnClasses;
+      }
+    });
+
+    showIssues();
+  }
+
+});
 
 issueCardsContainer.addEventListener('click', (e) => {
   const cardTitle = e.target.closest('h3');
-  const issueId = cardTitle?.dataset.issueId;  
+  const issueId = cardTitle?.dataset.issueId;
   // console.log(cardTitle, issueId);
   showIssue(issueId);
-  
+
 });
 
 
