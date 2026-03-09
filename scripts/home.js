@@ -174,12 +174,12 @@ const showIssue = async (issueId) => {
   const issueModal = document.querySelector('#issue_modal');
   issueModal.innerHTML = '';
   issueModal.innerHTML = `
-          <div class="modal-box p-8 w-full max-w-[43.75rem]">
-        <h3 class="text-text-primary text-2xl font-bold mb-2">
+          <div class="modal-box px-4 py-6 tablet:p-8 w-full max-w-[43.75rem]">
+        <h3 class="text-text-primary grid-cols-4 text-xl tablet:text-2xl font-bold mb-2">
           ${issue.title}
         </h3>
         <ul
-          class="flex items-center list-disc marker:text-[#64748b] gap-7 mb-[1.625rem]"
+          class="flex flex-wrap items-center list-disc marker:text-[#64748b] gap-7 mb-[1.625rem]"
         >
           <li class="list-none">
             <div
