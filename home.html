@@ -69,23 +69,23 @@
     />
   </head>
   <body class="min-h-screen bg-background pb-[3.75rem]">
-    <header class="bg-surface w-full h-[4.875rem] shadow-sm py-4">
+    <header class="bg-surface w-full shadow-sm py-4">
       <!-- container -->
-      <div class="max-w-[92rem] mx-auto px-4 flex justify-between">
+      <div class="max-w-[92rem] mx-auto pt-4 md:pt-0 px-4 flex justify-center desktop:justify-between flex-wrap gap-4 desktop:gap-0">
         <!-- left -->
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-1 justify-center">
           <div class="w-9 h-9">
             <img src="./assets/github-logo.png" alt="GitHub Logo" />
           </div>
-          <h1 class="text-text-primary text-2xl font-semibold">
+          <h1 class="text-text-primary text-xl tablet:text-2xl font-semibold">
             GitHub Issues Tracker
           </h1>
         </div>
         <!-- right -->
-        <div class="flex items-center gap-4">
+        <div class=" flex flex-col tablet:flex-row items-center flex-wrap tablet:flex-nowrap gap-4">
           <!-- search box -->
           <div
-            class="flex items-center w-[18.75rem] h-[2.75rem] border border-[#e4e4e7FF] rounded-[.25rem] p-4 focus-within:border-theme-primary transition-all duration-300"
+            class="flex  items-center w-full tablet:max-w-[18.75rem] h-[2.75rem] border border-[#e4e4e7FF] rounded-[.25rem] p-4 focus-within:border-theme-primary transition-all duration-300"
           >
             <!-- Search Icon -->
             <svg
@@ -110,8 +110,9 @@
               class="w-full text-base font-normal border-none focus:outline-none text-text-primary placeholder-text-secondary"
             />
           </div>
+          
           <button
-            class="btn bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3"
+            class="btn w-full tablet:w-auto bg-theme-primary text-white text-base font-semibold hover:bg-[#4a00ffcc] border-none transition-all duration-300 rounded-[.25rem] px-4 py-3"
           >
             <i class="fa-solid fa-plus w-4"></i><span>New Issue</span>
           </button>
