@@ -42,12 +42,12 @@ function wait(time) {
 
 const showSpinner = (show) => {
   if (show) {
-    issueCardsContainer.classList.remove('grid', 'grid-cols-4', 'gap-3');
+    issueCardsContainer.classList.remove('grid', 'grid-cols-1', 'desktop:grid-cols-4', 'gap-3');
     spinner.classList.remove('hidden');
     spinner.classList.add('flex');
   }
   else {
-    issueCardsContainer.classList.add('grid', 'grid-cols-4', 'gap-3');
+    issueCardsContainer.classList.add('grid', 'grid-cols-1', 'tablet:grid-cols-2', 'md:grid-cols-3', 'desktop:grid-cols-4', 'gap-3');
     spinner.classList.remove('flex');
     spinner.classList.add('hidden');
   }
