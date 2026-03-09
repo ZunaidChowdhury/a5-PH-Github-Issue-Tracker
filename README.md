@@ -1,15 +1,14 @@
 # a5-PH-Github-Issue-Tracker
 This is an assignment project of MERN stack course in programming hero batch 13.
 
-<p>Live project - https://zunaidchowdhury.github.io/a5-PH-Github-Issue-Tracker/home.html</p>
+Live project on Netlify - https://zunaid-a5-ph-github-issue-tracker.netlify.app/<br/>
+Live project on GitHub - https://zunaidchowdhury.github.io/a5-PH-Github-Issue-Tracker/home.html
 
-
-
-
+<br/>
 
 ## Answers to Questions
 
-1. What is the difference between var, let, and const?
+#### 1. What is the difference between var, let, and const?
 
 Answer: var is old way to declare a variable and let/const are modern way to declare variable in js, introduced in es6.
 the difference is that var is function scoped and let/const are block scoped.
@@ -25,8 +24,9 @@ block scoped, if declared inside block then accessible only inside block
 can't be redeclared with same name
 can’t call before declaring
 
+<br/>
 
-2. What is the spread operator (...)?
+#### 2. What is the spread operator (...)?
 
 Answer: '...' spread operator is introduced in es6. it extracts elements from an array or object to individual elements.
 lets say we have an array,
@@ -45,9 +45,9 @@ const user = { name: 'John', age: 25 };
 const updatedUser = { ...user, age: 26 }; // { name: 'John', age: 26 }
 
 
+<br/>
 
-
-3. What is the difference between map(), filter(), and forEach()?
+#### 3. What is the difference between map(), filter(), and forEach()?
 Answer: map(), filter(), and forEach(), all of them are array methods and they have their own use cases.
 map() and filter() creates/returns a new array but forEach() doesnt return anything but we can does something with each element of the array with it.
 
@@ -60,9 +60,9 @@ const activeAdults = users
   .filter(user => user.age >= 18)
   .map(user => user.name.toUpperCase());
 
+<br/>
 
-
-4. What is an arrow function?
+#### 4. What is an arrow function?
 Answer: In javascript we have two types of functions, regular function and arrow function. they are different in their behaviour.
 We declare regular function like,
 function add () {}
@@ -75,17 +75,28 @@ a. regular functions are hoisted but arrow functions are not hoisted so we can c
 cant call arrow function before their declaration.
 b. regular functions have their own 'this' binded but arrow functions does not have this binding.
 
+<br/>
 
-
-5. What are template literals?
+#### 5. What are template literals?
 Answer: template literal '``' is a new feature in js, introduced in es6. in js we use single quote '', double quote "" to write strings,
 now we can use template literal '``' to write strings. but whats special about it? The magic is that now we can embed variables or expressions directly in the string using the ${expression} syntax. we can type multi line strings, template literals preserve all whitespaces, including newlines, exactly as we type them in our code.
 
 
 
 
+<br/><br/><br/>
 
-## Desktop Version
+# Desktop Version
 <div align="center">
   <img src="./full-shot.png" width="100%" alt="Completed project image" />
 </div>
+
+
+
+<br/><br/><br/>
+
+# Links
+GitHub Repository Link - https://github.com/ZunaidChowdhury/a5-PH-Github-Issue-Tracker <br/>
+Live project on Netlify - https://zunaid-a5-ph-github-issue-tracker.netlify.app/ <br/>
+Live project on GitHub - https://zunaidchowdhury.github.io/a5-PH-Github-Issue-Tracker/home.html <br/>
+LinkedIn Profile - https://www.linkedin.com/in/zunaid-chowdhury-784735237/
